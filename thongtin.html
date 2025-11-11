@@ -5,12 +5,98 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thông Tin - Ngô Quang Vinh</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 40px; background-color: #f4f4f9; color: #333; }
-        nav { padding: 10px; background-color: #007bff; border-radius: 5px; }
-        nav a { margin-right: 25px; text-decoration: none; color: white; font-weight: bold; padding: 5px; transition: background-color 0.3s; }
-        nav a:hover { background-color: #0056b3; border-radius: 3px; }
-        h1 { color: #28a745; border-bottom: 2px solid #28a745; padding-bottom: 10px; }
-        ul { list-style-type: square; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; /* Đặt margin 0 để ảnh nền chiếm toàn bộ màn hình */
+            padding: 0;
+            color: #ecf0f1; /* Màu chữ trắng sáng để dễ đọc trên nền ảnh */
+            background-color: #333; /* Màu nền dự phòng tối */
+            
+            /* THÊM ẢNH NỀN HACKER TẠI ĐÂY */
+            background-image: url('https://cdn.xtmobile.vn/vnt_upload/news/05_2024/09/hinh-nen-hacker-cho-may-tinh-7-xtmobile.jpg');
+            background-size: cover; /* Đảm bảo ảnh nền bao phủ toàn bộ màn hình */
+            background-position: center; /* Căn giữa ảnh nền */
+            background-attachment: fixed; /* Giữ ảnh nền cố định khi cuộn */
+            background-repeat: no-repeat; /* Không lặp lại ảnh nền */
+            
+            position: relative; 
+            min-height: 100vh; /* Đảm bảo body đủ cao */
+        }
+
+        /* Thêm lớp phủ màu để làm nổi bật văn bản trên ảnh nền */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); /* Lớp phủ đen trong suốt 70% */
+            z-index: -1; 
+        }
+
+        nav { 
+            padding: 15px 40px;
+            background-color: rgba(0, 123, 255, 0.8); /* Màu nền xanh lam với độ trong suốt */
+            border-radius: 0;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            margin-bottom: 30px;
+        }
+        nav a { 
+            margin: 0 20px;
+            text-decoration: none; 
+            color: white; 
+            font-weight: bold; 
+            padding: 10px 15px; 
+            transition: background-color 0.3s, transform 0.2s; 
+            display: inline-block; 
+            border-radius: 5px;
+        }
+        nav a:hover { 
+            background-color: #0056b3; 
+            transform: translateY(-2px);
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 40px auto; /* Căn giữa container và tạo khoảng cách */
+            padding: 30px 40px;
+            background-color: rgba(255, 255, 255, 0.95); /* Nền trắng gần như đục cho nội dung chính */
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+            color: #333; /* Đổi màu chữ trong container thành đen để dễ đọc */
+        }
+
+        h1 { 
+            color: #28a745; /* Màu xanh lá cây nổi bật */
+            border-bottom: 2px solid #28a745; 
+            padding-bottom: 10px; 
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #007bff; /* Màu xanh dương cho tiêu đề phụ */
+            border-bottom: 1px solid #ced4da;
+            padding-bottom: 5px;
+            margin-top: 25px;
+        }
+        p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        ul { 
+            list-style-type: square; 
+            padding-left: 25px;
+        }
+        li {
+            margin-bottom: 8px;
+            color: #34495e;
+        }
+        strong {
+            color: #dc3545; /* Màu đỏ cho chữ in đậm */
+        }
     </style>
 </head>
 <body>
@@ -20,20 +106,21 @@
         <a href="dichvu.html">Dịch Vụ của Ngô Quang Vinh</a>
     </nav>
 
-    <h1>Thông Tin Cá Nhân về Ngô Quang Vinh 🧑‍💻</h1>
-    <p>Xin chào, tôi là **Ngô Quang Vinh**.</p>
-    <p>Tôi hiện là chủ các wed cá độ am hiểu trong lĩnh vực **Đỏ đen**, cụ thể là **Tài xỉu và nổ hũ**.</p>
-    
-    <h2>Liên Hệ Nhanh</h2>
-    <p>Email: ngoquangvinh@example.com</p>
-    
-    <h2>Sở thích:</h2>
-    <ul>
-        <li>Hút cạn máu các con nghiện</li>
-        <li>Thiết kế giao diện người dùng bẳt mắt dể dễ lừa tiền hơn(UI/UX)</li>
-        <li>Chơi game và chơi game</li>
-    </ul>
+    <div class="container">
+        <h1>Thông Tin Cá Nhân về Ngô Quang Vinh 🧑‍💻</h1>
+        <p>Xin chào, tôi là <strong>Ngô Quang Vinh</strong>.</p>
+        <p>Tôi hiện là chủ các wed cá độ am hiểu trong lĩnh vực <strong>Đỏ đen</strong>, cụ thể là <strong>Tài xỉu và nổ hũ</strong>.</p>
+        
+        <h2>Liên Hệ Nhanh</h2>
+        <p>Email: ngoquangvinh@example.com</p>
+        
+        <h2>Sở thích:</h2>
+        <ul>
+            <li>Hút cạn máu các con nghiện</li>
+            <li>Thiết kế giao diện người dùng bắt mắt dể dễ lừa tiền hơn (UI/UX)</li>
+            <li>Chơi game và chơi game</li>
+        </ul>
+    </div>
 
 </body>
 </html>
-
