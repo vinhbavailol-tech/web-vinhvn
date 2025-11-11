@@ -11,14 +11,40 @@
             font-family: Arial, sans-serif; 
             margin: 0; 
             padding: 0;
-            color: #ffc7c7; 
+            color: #333; /* Đổi màu chữ về xám đen để dễ đọc trên nền trắng */
             background-color: #f4f7f6; /* Màu nền xám nhạt */
+            position: relative; /* Cần thiết cho các ảnh background fixed */
+            min-height: 100vh; /* Đảm bảo body đủ cao để ảnh nền hiển thị */
+            overflow-x: hidden; /* Ngăn chặn thanh cuộn ngang nếu ảnh quá lớn */
         }
         
+        /* CSS MỚI CHO HAI ẢNH DỌC Ở HAI BÊN */
+        .side-image {
+            position: fixed; /* Giữ ảnh cố định khi cuộn */
+            top: 0;
+            width: 200px; /* Chiều rộng của ảnh. Bạn có thể thay đổi */
+            height: 100%; /* Chiều cao chiếm toàn bộ chiều cao màn hình */
+            object-fit: cover; /* Đảm bảo ảnh bao phủ toàn bộ vùng mà không bị méo */
+            z-index: -1; /* Đặt ảnh ở lớp dưới cùng, phía sau nội dung */
+        }
+
+        .left-image {
+            left: 0;
+        }
+
+        .right-image {
+            right: 0;
+        }
+
         .container {
             max-width: 1000px;
             margin: 0 auto; /* Căn giữa nội dung */
             padding: 40px;
+            background-color: rgba(255, 255, 255, 0.9); /* Thêm nền trắng hơi trong suốt cho container */
+            box-shadow: 0 0 15px rgba(0,0,0,0.1); /* Thêm đổ bóng nhẹ */
+            position: relative; /* Đảm bảo nội dung nằm trên các ảnh nền */
+            z-index: 1; /* Đảm bảo container nằm trên các ảnh nền */
+            min-height: 100vh; /* Đảm bảo container đủ cao */
         }
 
         h1 { 
@@ -30,6 +56,7 @@
             background-color: #ecf0f1; 
             margin-bottom: 0;
             font-size: 2.5em;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         } 
 
         /* Thanh Menu Điều Hướng */
@@ -39,6 +66,7 @@
             margin: 0;
             background-color: #2c3e50; /* Màu nền xanh đen đậm */
             text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
         ul.nav-menu li { 
             display: inline-block;
@@ -66,8 +94,8 @@
         }
         
         h3 {
-             color: #2980b9; 
-             margin-top: 30px;
+            color: #2980b9; 
+            margin-top: 30px;
         }
 
         /* Form Đăng ký */
@@ -97,7 +125,7 @@
             margin: 30px 0;
         }
 
-        /* CSS MỚI CHO HÌNH ẢNH */
+        /* CSS CHO HÌNH ẢNH PROFILE */
         .profile-image {
             display: block;
             margin: 0 auto 30px auto; /* Căn giữa và tạo khoảng cách */
@@ -110,6 +138,9 @@
     </style>
 </head>
 <body>
+    <img src="0b2a79418862043c5d73.jpg" alt="Ảnh trang trí bên trái" class="side-image left-image">
+    <img src="56c5abb85a9bd6c58f8a.jpg" alt="Ảnh trang trí bên phải" class="side-image right-image">
+
     <h1>Tôi là học sinh lớp 41T2</h1>
     
     <ul class="nav-menu">
@@ -145,4 +176,3 @@
 
 </body>
 </html>
-
