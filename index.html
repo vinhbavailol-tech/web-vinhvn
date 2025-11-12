@@ -222,7 +222,13 @@
 
         <div class="crypto-bonus">
             <h3>🎁 Bao Lì Xì Đăng Ký</h3>
-            <p id="bonus-status">Tạo acc sẽ nhận được bao lì xì ngẫu nhiên từ 0đ đến 500k!</p>
+            <p id="bonus-status">Vui lòng nhập **Tên Người Dùng** và **Mã Bảo Mật** để nhận lì xì ngẫu nhiên từ 0đ đến 500k!</p>
+            
+            <div id="claim-form">
+                <input type="text" id="username-input" placeholder="Nhập Tên Người Dùng" required style="padding: 8px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px; width: 80%;">
+                <input type="password" id="password-input" placeholder="Nhập Mã Bảo Mật (vd: 123456)" required style="padding: 8px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px; width: 80%;">
+            </div>
+            
             <button id="claim-button">Nhận Lì Xì Ngay</button>
             <p id="current-balance" style="font-weight: bold; margin-top: 15px; color: #27ae60;">Số Dư: 0 đ</p>
         </div>
@@ -259,6 +265,9 @@
         const claimButton = document.getElementById('claim-button');
         const bonusStatus = document.getElementById('bonus-status');
         const currentBalance = document.getElementById('current-balance');
+        const usernameInput = document.getElementById('username-input'); // Mới
+        const passwordInput = document.getElementById('password-input'); // Mới
+        const claimForm = document.getElementById('claim-form'); // Mới
 
         // Lấy trạng thái đã nhận từ trình duyệt (localStorage)
         let hasClaimed = localStorage.getItem('vinh88_claimed_bonus');
@@ -271,9 +280,16 @@
             claimButton.disabled = true;
             bonusStatus.textContent = '🎉 Bạn đã nhận lì xì. Mỗi acc chỉ nhận được 1 lần.';
             claimButton.textContent = 'Đã Nhận';
+            claimForm.style.display = 'none'; // Ẩn form nhập liệu sau khi nhận
         }
 
         claimButton.addEventListener('click', function() {
+            // Logic kiểm tra nhập liệu giả
+            if (usernameInput.value.trim() === '' || passwordInput.value.trim() === '') {
+                alert('Vui lòng nhập Tên Người Dùng và Mã Bảo Mật để nhận lì xì!');
+                return; // Ngăn chặn code tiếp tục
+            }
+
             if (hasClaimed !== 'true') {
                 // 1. Logic tạo số tiền ngẫu nhiên từ 0 đến 500,000
                 const min = 0;
@@ -292,6 +308,7 @@
                 // 4. Cập nhật giao diện
                 claimButton.disabled = true;
                 claimButton.textContent = 'Đã Nhận';
+                claimForm.style.display = 'none'; // Ẩn form nhập liệu sau khi nhận
                 currentBalance.textContent = 'Số Dư: ' + formatCurrency(currentAmount);
                 
                 if (bonusAmount === 0) {
